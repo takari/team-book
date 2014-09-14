@@ -1,0 +1,9 @@
+_site
+_book
+.idea
+*~
+book/en
+*.epub
+*.pdf
+*.mobi
+main.log
