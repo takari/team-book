@@ -5,6 +5,8 @@ set -e
 # fail if a function call is missing an argument
 set -u
 
+rm -rf en
+
 ./generate-chapters.rb
 
 echo "build - Starting PDF Generation -----------------------------------------------"

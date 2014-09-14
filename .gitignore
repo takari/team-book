@@ -3,6 +3,7 @@ _book
 .idea
 *~
 book/en
+book/latex/en
 *.epub
 *.pdf
 *.mobi
