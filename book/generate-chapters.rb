@@ -1,7 +1,28 @@
 #!/usr/bin/env ruby
 
 require 'fileutils'
-require 'pathname'
+
+
+#
+# This generates anchors that work with redcarpets toc data option in Jekyll #
+def tocify(markdownFile, htmlFile)
+  bookSiteUrl = "/team/book/"
+  tocCount = 0
+  tocLines = ""
+  File.open(markdownFile, 'r') do |f|
+    f.each_line do |line|
+      forbidden_words = ['Table of contents', 'define', 'pragma']
+      next if !line.start_with?("#") || forbidden_words.any? { |w| line =~ /#{w}/ }
+      title = line.gsub("#", "").strip
+      href = title.gsub(" ", "-").downcase
+      href = "#{bookSiteUrl}#{htmlFile}#toc_#{tocCount}"
+      tocLine = "  " * (line.count("#")-1) + "* [#{title}](#{href})\n"
+      tocLines << tocLine
+      tocCount = tocCount + 1
+    end
+  end
+  return tocLines
+end
 
 chapters = []
 Dir.glob("../[0-9][0-9]-*.md") { |file|
@@ -20,10 +41,12 @@ Dir.glob("../[0-9][0-9]-*.md") { |file|
 # We also want to emit a version of the chapter with Jekyll front-matter that can
 # be integrated into a normal Jekyll site
 #
+toc = ""
 bookDirectory = "team/book"
 FileUtils.mkdir_p(bookDirectory)
 chapters.each { |chapter|
   basename = File.basename(chapter, ".md")
+  htmlFile = "#{basename}.html"
   parts = basename.match(/([0-9][0-9])-(.*)/)
   chapterNumber = parts[1]
   title = parts[2].capitalize
@@ -45,6 +68,14 @@ chapters.each { |chapter|
     f.write("---\n")
     f.write(content) 
   }
+  toc << tocify(chapter, htmlFile)
 }
 
-
+tocFile = "#{bookDirectory}/index.md"
+File.open(tocFile, 'w') { |f| 
+  f.write("---\n")
+  f.write("layout: chapter\n")
+  f.write("title: Index\n")
+  f.write("---\n")
+  f.write(toc) 
+}

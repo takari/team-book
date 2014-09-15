@@ -25,3 +25,8 @@ echo "build - Finished epub Generation - see team-book.en.epub -----------------
 
 # We dont' want to keep this around
 rm team-book.en.html
+
+mv team-book.en.epub team/team.epub
+mv team-book.en.mobi team/team.mobi
+mv team-book.en.pdf team/team.pdf
+
