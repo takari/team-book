@@ -205,7 +205,8 @@ code to Java 1.8 compatible class files
         <artifactId>takari-lifecycle-plugin</artifactId>
         <configuration>
           <source>1.8</source>
-        <configuration>
+          <target>1.8</target>
+         <configuration>
 
 Alternatively the property 'maven.compiler.source'. Following is a list of all 
 compiler related configuration options

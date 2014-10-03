@@ -16,7 +16,7 @@ def tocify(markdownFile, htmlFile)
       title = line.gsub("#", "").strip
       href = title.gsub(" ", "-").downcase
       href = "#{bookSiteUrl}#{htmlFile}#toc_#{tocCount}"
-      tocLine = "  " * (line.count("#")-1) + "* [#{title}](#{href})\n"
+      tocLine = "    " * (line.count("#")-1) + "* [#{title}](#{href})\n"
       tocLines << tocLine
       tocCount = tocCount + 1
     end
@@ -74,7 +74,7 @@ chapters.each { |chapter|
 tocFile = "#{bookDirectory}/index.md"
 File.open(tocFile, 'w') { |f| 
   f.write("---\n")
-  f.write("layout: chapter\n")
+  f.write("layout: bookTOC\n")
   f.write("title: Index\n")
   f.write("---\n")
   f.write(toc) 
