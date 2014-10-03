@@ -196,16 +196,16 @@ The compiler integration supports a number of configuration parameters. The
 source and target parameters allow you to set the respective parameters for the
 compiler.
 
-For example, the following configuration can be used to compile Java 1.9 source
-code to Java 1.9 compatible class files
+For example, the following configuration can be used to compile Java 1.8 source
+code to Java 1.8 compatible class files
 
     <plugins>
       <plugin>
         <groupId>io.takari.maven.plugins</groupId>
         <artifactId>takari-lifecycle-plugin</artifactId>
         <configuration>
-          <source>1.9</source>
-          <target>1.9</target>
+          <source>1.8</source>
+          <target>1.8</target>
          <configuration>
 
 Alternatively the properties 'maven.compiler.source' and 'maven.compiler.target'
