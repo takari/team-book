@@ -196,20 +196,19 @@ The compiler integration supports a number of configuration parameters. The
 source and target parameters allow you to set the respective parameters for the
 compiler.
 
-For example, the following configuration can be used to compile Java 1.9 source
-code to Java 1.9 compatible class files
+For example, the following configuration can be used to compile Java 1.8 source
+code to Java 1.8 compatible class files
 
     <plugins>
       <plugin>
         <groupId>io.takari.maven.plugins</groupId>
         <artifactId>takari-lifecycle-plugin</artifactId>
         <configuration>
-          <source>1.9</source>
-          <target>1.9</target>
-         <configuration>
+          <source>1.8</source>
+        <configuration>
 
-Alternatively the properties 'maven.compiler.source' and 'maven.compiler.target'
-can be used. Following is a list of all compiler related configuration options
+Alternatively the property 'maven.compiler.source'. Following is a list of all 
+compiler related configuration options
 
 compilerId (maven.compiler.compilerId)
 : The default value of 'javac' will invoke the Java compiler of the installed
@@ -305,16 +304,16 @@ On a jar packaging project the pom and jar are installed and deployed as usual:
     Uploaded: http://.../maven-metadata.xml (295 B at 4.8 KB/sec)
 
 
-## Installing M2e Integration
+## Installing Eclipse m2e Integration
 
 The incremental build behavior of the takari lifecycle is supported by an
 extension to the Maven support for Eclipse, m2e.
 
 You can install it by choosing Help - Install New Software and adding another
-software site using the newest subdirectory of
+software site using the following URL
 
-    http://repository.takari.io:8081/nexus/content/sites/m2e.extras/m2eclipse-takari-lifecycle/0.1.0/N/
+    http://repository.takari.io:8081/nexus/content/sites/m2e.extras/takari-team/0.1.0/N/LATEST/
 
-as the URL. Once the availabel components are loaded, you will be able to select
+Once the availabel components are loaded, you will be able to select
 the Takari Build Lifecycle and proceed with the install through the dialogs.
 After a restart of Eclipse the incremental build support will be available.
