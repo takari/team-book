@@ -4,8 +4,11 @@ _book
 *~
 book/en
 book/latex/en
+book/team-book.en.html
 *.epub
 *.pdf
 *.mobi
 main.log
 team/
+.project
+
