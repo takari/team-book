@@ -7,7 +7,7 @@ distribution.
 
 ## What is TEAM?
 
-TEAM stands for the Takari Extensions for Apache. TEAM is a collection of
+TEAM stands for the Takari Extensions for Apache Maven. TEAM is a collection of
 supported Maven plugins and extensions to a core Apache Maven. It is made freely
 available by Takari. Takari is creating new releases every 30-60 days depending
 on the current development schedule.
@@ -20,6 +20,8 @@ distribution and TEAM includes the following features beyond that of Maven:
 1. An intelligent approach to the parallelization of Maven builds
 
 1. An alternative to SNAPSHOT releases called Generations
+
+1. Improved testing features and support
 
 ### TEAM: Advanced Use Cases for Maven
 

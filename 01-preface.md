@@ -28,7 +28,7 @@ to avoid creating custom build scripts that are difficult to understand and
 maintain, you use Maven. It provides a model that is easy to understand, and it
 can be adapted to meet most requirements.
 
-What is also became clear over these 10 years is that Maven's conventions are
+What also became clear over these 10 years is that Maven's conventions are
 not for everyone, and this is to be expected. When I hear that people are
 dissatisfied with Maven or when people call it inflexible and broken, I agree.
 Maven isn't aiming to be everything to every build engineer. If you don't follow
@@ -45,7 +45,7 @@ has been over the last.
 
 While features like incremental builds and faster parallel builds will
 certainly be relevant to all Maven users, these features have been designed to
-address the needs of build at scale.
+address the needs of building at scale.
 
 ## Who is this book for?
 
