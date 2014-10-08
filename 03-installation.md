@@ -150,6 +150,12 @@ Default locale: en_US, platform encoding: UTF-8
 OS name: "mac os x", version: "10.8.5", arch: "x86_64", family: "mac"
 ```
 
+## Eclipse Support for TEAM
+
+Any TEAM plugins and components needed for development with Eclipse and M2e are setup to be automatically installed. Alternatively you can manually install the components.
+
+[//]: # (TBD need to add some URLs or whatever else here, maybe screenshots or whatever)
+
 Here is an example figure ... have to figure out how that works in the scripts
 yet. Notice that the file name does NOT determine the file .. only to some
 degree. The chapter number is autoinserted based on the folder or so.
