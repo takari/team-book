@@ -1,6 +1,6 @@
 # Introduction
 
-TEAM introduces additionl support for testing your application or plugin.
+TEAM introduces additional support for testing your application or plugin.
 
 ## Plugin Integration Testing
 
@@ -78,22 +78,64 @@ This completes the necessary configuration in the POM.
 
 ### Adding Test Projects
 
-The example projects used for the integration tests runs should be located in ```src/test/projects```.
+The example projects used for the integration tests runs should be located in `src/test/projects` and can be Maven projects of any type and complexity. The version of the actual plugin being tested is passed into the test run as a property `it-plugin.version`. This property can used in your test project to set the plugin version:
+
+```
+<groupId>com.example.maven.plugins</groupId>
+<artifactId>example-maven-plugin</artifactId>
+<version>${it-plugin.version}</version>
+```
 
 ### Writing a Test
 
-see examples
-
-### Test Execution Configuration
-
-Either as normal junit test or if desired to run separately at IT test with failsafe plugin
-
-### Running a Test on the Commandline
+An actual test with a minimal test building an project in `src/test/projects/example` could look like the following:
 
 ````
-mvn test or integration-test -Dtest=xyz
+@RunWith(MavenJUnitTestRunner.class)
+@MavenVersions({"3.2.3"})
+public class ExampleTest {
+
+  @Rule
+  public final TestResources resources = new TestResources();
+
+  public final MavenRuntime mavenRuntime;
+
+  public ExampleIT(MavenRuntimeBuilder builder) throws Exception {
+    this.mavenRuntime = builder.build();
+  }
+
+  @Test
+  public void buildExample() throws Exception {
+    File basedir = resources.getBasedir( "example" );
+    MavenExecutionResult result = mavenRuntime
+          .forProject(basedir)
+          .execute( "clean", "install" );
+
+    result.assertErrorFreeLog();
+  }
 ````
+
+The build will run a full build of the `example` project by copying it to the a method and Maven specific folder in `target/test-projects`. The `MavenVersions` annotation supports multiple versions to be specified and relies on the Maven installation done by the POM configuration with the dependency plugin.
+
+### Command Line Test Execution
+
+The tests can be executed as normal junit tests run with the Surefire Maven plugin. Alternatively you can use the Failsafe plugin to run them separate from the unit tests.
+
+To run a specific test on the command line you can use
+
+```
+mvn test -Dtest=ExampleTest
+```
+
+for a surefire test run or
+
+```
+mvn test -Dtest=ExampleTest
+```
+
+for a failsafe test run.
+
 
 ### Running a Test in Eclipse
 
-with Maven Dev
+When using the plugin testing on a project in Eclipse with M2e, the required tooling including the Maven Development tools will be automatically installed. This will enable to you to run a single test by right-clicking on the test method and selecting Run As/Debug As - Maven Junit Test.
