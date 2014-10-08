@@ -47,14 +47,14 @@ to the reader.
 ## Downloading TEAM
 
 You TEAM can be downloaded from the Central Repository at
-https://repo.maven.apache.org/maven/io/takari/takari-team-maven/. This location
+`https://repo.maven.apache.org/maven/io/takari/takari-team-maven/`. This location
 contains all released versions. The TEAM distribution is available as both a
 GZip'd tar archive in each version specific folder following the Maven
 repository format's naming convention for the archive. E.g. you can download
 version 0.9.0 of TEAM from
 
 ```
-https://repo1.maven.org/maven2/io/takari/takari-team-maven/0.9.0/takari-team-maven-0.9.0.tar.gz
+https://repo1.maven.apache.org/maven2/io/takari/takari-team-maven/0.9.0/takari-team-maven-0.9.0.tar.gz
 ```
 
 resulting in a downloaded archive file name of `takari-team-maven-0.9.0.tar.gz`.
