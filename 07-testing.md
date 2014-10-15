@@ -1,6 +1,22 @@
 # Introduction
 
-TEAM introduces additional support for testing your application or plugin.
+TEAM introduces additional support for testing your Maven plugins.
+
+## Plugin Unit Testing
+
+[//]: # (TBD)
+
+````
+<dependencies>
+    <dependency>
+      <groupId>org.apache.maven.plugin-testing</groupId>
+      <artifactId>maven-plugin-testing-harness</artifactId>
+      <scope>test</scope>
+    </dependency>
+    ...
+````
+
+More at http://maven.apache.org/plugin-testing/maven-plugin-testing-harness/getting-started/index.html
 
 ## Plugin Integration Testing
 
