@@ -1,4 +1,4 @@
-# Installing TEAM
+# Installing and Configuring TEAM
 
 This chapter covers the installation process for the Takari Extensions for Apache Maven - TEAM.
 
@@ -168,6 +168,14 @@ The same output will be created with the `-V` or `--show-version`parameters. It 
 Any TEAM plugins and components needed for development with Eclipse and M2e are setup to be automatically installed. Alternatively you can manually install the components.
 
 [//]: # (TBD need to add some URLs or whatever else here, maybe screenshots or whatever)
+
+## Logging
+
+TEAM includes support for colored logging and other features of the [LOGBack logging framework](http://logback.qos.ch/) . Colored output can be activated by replacing the default `M2_HOME/conf/logback.xml` with the included `M2_HOME/conf/logback-colour.xml`.
+
+This example configuration simply changes the `[INFO]` label in each log line toa blue color and the `[WARNING]` label to red. LOGBack supports a lot of logging configurations, that you can take advantage of. Please refer to the [excellent documentation](http://logback.qos.ch/documentation.html) for further details. The [coloring section of the layout chapter](http://logback.qos.ch/manual/layouts.html#coloring) is specifically helpful for further tweaks to the default coloring output e.g. when adapting it to your favourite command line look and feel.
+
+
 
 Here is an example figure ... have to figure out how that works in the scripts
 yet. Notice that the file name does NOT determine the file .. only to some
