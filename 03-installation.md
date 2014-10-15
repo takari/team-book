@@ -76,14 +76,14 @@ archive extract it with a command line tool like 'tar' or one of the
 many available archive management applications for your operating system.
 
 ```
-tar xvzf takari-team-maven-0.9.0.tar.gz
+tar xvzf takari-team-maven-1.0.0.tar.gz
 ```
 
 Successful extraction will create a directory with the same name as the archive
 file, omitting the extension.
 
 ```
-takari-team-maven-0.9.0
+takari-team-maven-1.0.0
 ```
 
 As a next step you need to move this directory to a suitable location. The
@@ -95,8 +95,8 @@ Linux or OSX install TEAM into `/opt` or `/usr/local` and avoid path names conta
 spaces such as `Program Files`.
 
 ```
-/opt/takari-team-maven-0.9.0
-C:\tools\takari-team-maven-0.9.0
+/opt/takari-team-maven-1.0.0
+C:\tools\takari-team-maven-1.0.0
 ```
 
 The next steps should be just as familiar from a standard Maven installation as
@@ -106,7 +106,7 @@ points to the folder you just created and add `M2_HOME/bin` to the `PATH`.
 On Linux or OSX you can configure this e.g., in your `~/.profile` file with
 
 ```
-export M2_HOME=/opt/takari-team-maven-0.9.0
+export M2_HOME=/opt/takari-team-maven-1.0.0
 export PATH=M2_HOME/bin:$PATH
 ```
 
@@ -114,7 +114,7 @@ On Windows you typically configure this via the user interface as a system
 environment variable. On the command line you can use the set command:
 
 ```
-set M2_HOME=c:\tools\takari-team-maven-0.9.0
+set M2_HOME=c:\tools\takari-team-maven-1.0.0
 ```
 
 Note that the usage of the environment variable is done
@@ -137,18 +137,31 @@ mvn team:install or whatever
 ## Verifying your TEAM Installation
 
 Once you have installed the TEAM distribution, you should verify your setup
-by running `mvn -v` or `mvn --version`, which should display the TEAM version
-and some further details:
+by running `mvn -v` or `mvn --version`, which should display the TEAM version:
 
 ```
 $ mvn -v
-Takari TEAM 0.9.0 (15eb3...; 2014-08-28T10:27:57-07:00)
-Maven home: /opt/tools/takari-team-maven-0.9.0
+Takari Extensions for Apache Maven (TEAM) 0.9.1-SNAPSHOT
+(72d4cce; 2014-10-14T11:12:43-07:00)
+
+Including:
+ --> Apache Maven: 3.2.4-SNAPSHOT
+ --> Smart Builder: 0.3.0
+ --> Concurrent Safe Local Repository: 0.10.4
+ --> OkHttp Aether Connector: 0.13.1
+ --> Logback with Colour Support: 1.0.7
+ --> Incremental Build Support: 0.9.0+
+
+http://takari.io/team
+
+Maven home: /opt/tools/takari-team-maven-0.9.1-SNAPSHOT
 Java version: 1.7.0_65, vendor: Oracle Corporation
 Java home: /Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home/jre
 Default locale: en_US, platform encoding: UTF-8
 OS name: "mac os x", version: "10.8.5", arch: "x86_64", family: "mac"
 ```
+
+The same output will be created with the `-V` or `--show-version`parameters. It details the version of TEAM as well as the components of it e.g. Apache Maven, Smart Builder and others.
 
 ## Eclipse Support for TEAM
 
