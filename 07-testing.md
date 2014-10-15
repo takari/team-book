@@ -1,4 +1,4 @@
-# Introduction
+# Test Support
 
 TEAM introduces additional support for testing your Maven plugins.
 
