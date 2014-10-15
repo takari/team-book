@@ -1,4 +1,6 @@
-# Introduction
+# Incremental Build Support Library
+
+## Introduction
 
 To use the incremental build library the only dependency you need is the following:
 

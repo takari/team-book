@@ -1,4 +1,4 @@
-# Introduction
+# Introducing TEAM
 
 This book was created to document the plugins and features available in the
 Takari Extensions for Apache Maven (TEAM). This introduction defines what the
