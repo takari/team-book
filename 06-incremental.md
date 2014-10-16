@@ -17,7 +17,7 @@ your plugin is :
 </dependency>
 ```
 
-Furhter details are coming and need to be fleshed out below.
+Further details are coming and need to be fleshed out below.
 
 ## Single input with single output (1-1)
 

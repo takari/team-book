@@ -331,9 +331,12 @@ Uploaded: http://.../maven-metadata.xml (295 B at 4.8 KB/sec)
 ## Installing Eclipse m2e Integration
 
 The incremental build behavior of the takari lifecycle is supported by an
-extension to the Maven support for Eclipse, m2e. This extensions will automatically be installedwhen you import a Maven project that have thetakari-lifecycle-plugin configured.
+extension to the Maven support for Eclipse, m2e. This extensions will
+automatically be installedwhen you import a Maven project that have
+thetakari-lifecycle-plugin configured.
 
-Alternatively you can install it manually by choosing Help - Install New Software and adding another software site using the following URL
+Alternatively you can install it manually by choosing Help - Install New
+Software and adding another software site using the following URL
 
 ```
 http://repository.takari.io:8081/nexus/content/sites/m2e.extras/takari-team/0.1.0/N/LATEST/

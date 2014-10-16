@@ -1,5 +1,7 @@
 # Generations
 
+## Introduction
+
 TEAM supports a replacement for the distinction between development or SNAPSHOT
 versions and release versions of Maven projects and artifacts called
 Generations. This new concept allows for every build to be treated as a
@@ -13,4 +15,4 @@ supported... a centralized git support and others are planned..
 Generations support in TEAM allows for simple setups of Maven based builds to
 support continuous build as well as continuous deployment set ups.
 
-More to come here shortly. We can take some stuff from blog posts and more.
+More to come here shortly.
