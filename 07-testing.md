@@ -6,17 +6,24 @@ TEAM introduces additional support for testing your Maven plugins.
 
 [//]: # (TBD)
 
+The Eclipse tooling of TEAM includes specific support for running unit tests for 
+Maven plugins with the help of the Maven Plugin Testing Harness. You can start 
+using it by adding the `test` scoped dependency:
+
+
 ````
-<dependencies>
-    <dependency>
-      <groupId>org.apache.maven.plugin-testing</groupId>
-      <artifactId>maven-plugin-testing-harness</artifactId>
-      <scope>test</scope>
-    </dependency>
-    ...
+<dependency>
+  <groupId>org.apache.maven.plugin-testing</groupId>
+  <artifactId>maven-plugin-testing-harness</artifactId>
+  <scope>test</scope>
+</dependency>
 ````
 
-More at http://maven.apache.org/plugin-testing/maven-plugin-testing-harness/getting-started/index.html
+Further details can be found in 
+the [mini guide on the Maven website](http://maven.apache.org/plugin-testing/maven-plugin-testing-harness/getting-started/index.html).
+
+Once everything is configured the M2e tooling will allow you to run and debug 
+any test within the IDE.
 
 ## Plugin Integration Testing
 
@@ -154,4 +161,14 @@ for a failsafe test run.
 
 ### Running a Test in Eclipse
 
-When using the plugin testing on a project in Eclipse with M2e, the required tooling including the Maven Development tools will be automatically installed. This will enable to you to run a single test by right-clicking on the test method and selecting Run As/Debug As - Maven Junit Test.
+When using the plugin testing on a project in Eclipse with M2e, the required 
+tooling including the Maven Development tools will be automatically installed. 
+This will enable to you to e.g., run a single test by right-clicking on the test
+ method or class and selecting Run As/Debug As - Maven Junit Test.
+
+The following figure shows a sample test with multiple invocations for different 
+Maven version after a successful run within Eclipse.
+
+Insert 18333fig0701.png
+Figure 7-1. Maven plugin unit testing view in Eclipse
+
