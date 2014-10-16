@@ -1,4 +1,4 @@
-# Introducing TEAM
+# Introducing Takari and TEAM
 
 This book was created to document the plugins and features available in the
 Takari Extensions for Apache Maven (TEAM). This introduction defines what the
@@ -23,7 +23,7 @@ distribution and TEAM includes the following features beyond that of Maven:
 
 1. Improved testing features and support
 
-### TEAM: Advanced Use Cases for Maven
+## TEAM: Advanced Use Cases for Maven
 
 While TEAM's features are relevant to all Maven users, these features and
 plugins were designed to support development at scale - on projects with
@@ -45,7 +45,7 @@ needs of large software projects. The features added to TEAM cater to issues tha
 arise when hundreds or thousands of developers are collaborating on fast-moving
 projects.
 
-### What is Takari?
+## What is Takari?
 
 Takari is a company founded by Jason van Zyl focused on creating software to
 manage component-based development and to support builds at scale. Takari's
@@ -53,28 +53,28 @@ developers bring multiple decades of experience building software systems to our
 customers. We know about creating and documenting large open source projects
 including Maven among others from years of actually running them.
 
-### Sustainable Open Source Development
+## Sustainable Open Source Development
 
 Takari is committed to practicing sustainable open source development and
 building a community that understands exactly how open source developers and
 community members must be active participants to ensure the ongoing health of an
 open source project.
 
-### Integrity and Authenticity
+## Integrity and Authenticity
 
 As open source developers we believe in doing the right thing, in a reliable
 way and are committed to being genuine in our actions and reactions. Everyone
 from our developers to our executives understands that our actions must be
 consistent with our community.
 
-### Our Customers are Our Investors
+## Our Customers are Our Investors
 
 Our customers fund our day-to-day operations by paying for our training,
 services and products. We answer to our customers so we can continue to focus
 our energy where it matters most — on creating high-quality, useful products for
 the community.
 
-### Community Support is Key
+## Community Support is Key
 
 Staying involved and continuing to support the projects that are such a large
 part of where we came from is important to us. While we are focused on
@@ -86,7 +86,7 @@ larger community.
 The efforts of Takari related to TEAM are influenced by the following industry
 trends:
 
-### Changing Technology - Changing Conventions
+## Changing Technology - Changing Conventions
 
 What worked 10 years ago may not be appropriate for today’s builds, but the
 core concepts that drove the creation of Maven are still valid today. Convention
@@ -112,7 +112,7 @@ is Takari's goal to make sure that TEAM's regular releases can fill in the gaps
 between Maven's far less frequent releases so that changes in technology can be
 quickly addressed by TEAM.
 
-### Faster Lifecycles: More Frequent Releases
+## Faster Lifecycles: More Frequent Releases
 
 When Maven was created we were aiming at projects that needed to conduct a
 weekly or monthly software release for a relatively well-defined project. When

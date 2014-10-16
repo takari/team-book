@@ -2,7 +2,12 @@
 
 ## Introduction
 
-To use the incremental build library the only dependency you need is the following:
+The incremental build support included in TEAM and used for the incremental
+build support of the Takari lifecycle is available as a generic library to
+enhance other Maven plugins and tools by enabling incremental builds.
+
+To use the incremental build library the only dependency you need to add to
+your plugin is :
 
 ```
 <dependency>
@@ -12,6 +17,8 @@ To use the incremental build library the only dependency you need is the followi
 </dependency>
 ```
 
+Furhter details are coming and need to be fleshed out below.
+
 ## Single input with single output (1-1)
 
 resources mojo
@@ -20,7 +27,9 @@ resources mojo
 
 modello
 
-Where the library will track what's been generated from run to run to detect the delta and remove extraneous files, i.e. those that modello has not generated and therefore no longer useful.
+Where the library will track what's been generated from run to run to detect
+the delta and remove extraneous files, i.e. those that modello has not generated
+and therefore no longer useful.
 
 - register all valid inputs
 - make sure that it's valid

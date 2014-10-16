@@ -27,11 +27,18 @@ any test within the IDE.
 
 ## Plugin Integration Testing
 
-TEAM plugin integration testing allows you to run integration tests for your project that span a new Maven invocation to run a full Maven build of an example Maven project. This can include multiple runs with different Maven versions, log analysis and different test runs for the same projects. IDE support is available and allows you full debugging of your build.
+TEAM plugin integration testing allows you to run integration tests for your
+project that span a new Maven invocation to run a full Maven build of an example
+Maven project. This can include multiple runs with different Maven versions, log
+analysis and different test runs for the same projects. IDE support is available
+and allows you full debugging of your build.
 
 ### Configuring the POM
 
-The POM of the project containing the integration tests needs to be set up to provision all the Maven distributions required for the test invocations in the the build output directory. This can be achieved with the Maven dependency plugin:
+The POM of the project containing the integration tests needs to be set up to
+provision all the Maven distributions required for the test invocations in the
+the build output directory. This can be achieved with the Maven dependency
+plugin:
 
 ````
 <plugin>
@@ -68,7 +75,9 @@ The POM of the project containing the integration tests needs to be set up to pr
 </plugin>
 ````
 
-Depending on the Maven versions you you plan to use, you can either remove or add furhter artifact items. The plugin testing itself is added as a test scoped dependency.
+Depending on the Maven versions you you plan to use, you can either remove or
+add furhter artifact items. The plugin testing itself is added as a test scoped
+dependency.
 
 ````
 <dependency>
@@ -101,7 +110,11 @@ This completes the necessary configuration in the POM.
 
 ### Adding Test Projects
 
-The example projects used for the integration tests runs should be located in `src/test/projects` and can be Maven projects of any type and complexity. The version of the actual plugin being tested is passed into the test run as a property `it-plugin.version`. This property can used in your test project to set the plugin version:
+The example projects used for the integration tests runs should be located in `src/test/projects`
+and can be Maven projects of any type and complexity. The version of the actual
+plugin being tested is passed into the test run as a property `it-plugin.version`
+This property can used in your test project to set the plugin version:
+
 
 ```
 <groupId>com.example.maven.plugins</groupId>
@@ -111,7 +124,8 @@ The example projects used for the integration tests runs should be located in `s
 
 ### Writing a Test
 
-An actual test with a minimal test building an project in `src/test/projects/example` could look like the following:
+An actual test with a minimal test building an project in `src/test/projects/example`
+could look like the following:
 
 ````
 @RunWith(MavenJUnitTestRunner.class)
@@ -138,11 +152,16 @@ public class ExampleTest {
   }
 ````
 
-The build will run a full build of the `example` project by copying it to the a method and Maven specific folder in `target/test-projects`. The `MavenVersions` annotation supports multiple versions to be specified and relies on the Maven installation done by the POM configuration with the dependency plugin.
+The build will run a full build of the `example` project by copying it to the a
+method and Maven specific folder in `target/test-projects` . The `MavenVersions`
+annotation supports multiple versions to be specified and relies on the Maven
+installation done by the POM configuration with the dependency plugin.
 
 ### Command Line Test Execution
 
-The tests can be executed as normal junit tests run with the Surefire Maven plugin. Alternatively you can use the Failsafe plugin to run them separate from the unit tests.
+The tests can be executed as normal junit tests run with the Surefire Maven
+plugin. Alternatively you can use the Failsafe plugin to run them separate from
+the unit tests.
 
 To run a specific test on the command line you can use
 

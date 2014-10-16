@@ -161,17 +161,44 @@ Default locale: en_US, platform encoding: UTF-8
 OS name: "mac os x", version: "10.8.5", arch: "x86_64", family: "mac"
 ```
 
-The same output will be created with the `-V` or `--show-version`parameters. It details the version of TEAM as well as the components of it e.g. Apache Maven, Smart Builder and others.
+The same output will be created with the `-V` or `--show-version` parameters. It
+details the version of TEAM as well as the components of it e.g. Apache Maven,
+Smart Builder and others.
 
 ## Eclipse Support for TEAM
 
-Any TEAM plugins and components needed for development with Eclipse and M2e are setup to be automatically installed. Alternatively you can manually install the components.
+Any TEAM plugins and components needed for development with Eclipse and M2e are
+setup to be automatically installed. Alternatively you can manually install the
+components.
 
 [//]: # (TBD need to add some URLs or whatever else here, maybe screenshots or whatever)
 
 ## Logging
 
-TEAM includes support for colored logging and other features of the [LOGBack logging framework](http://logback.qos.ch/) . Colored output can be activated by replacing the default `M2_HOME/conf/logback.xml` with the included `M2_HOME/conf/logback-colour.xml`.
+TEAM includes support for colored logging and other features of the [LOGBack logging framework]
+(http://logback.qos.ch/) . Colored output can be activated by replacing the
+default `M2_HOME/conf/logback.xml` with the included `M2_HOME/conf/logback-colour.xml`
+.
 
-This example configuration simply changes the `[INFO]` label in each log line toa blue color and the `[WARNING]` label to red. LOGBack supports a lot of logging configurations, that you can take advantage of. Please refer to the [excellent documentation](http://logback.qos.ch/documentation.html) for further details. The [coloring section of the layout chapter](http://logback.qos.ch/manual/layouts.html#coloring) is specifically helpful for further tweaks to the default coloring output e.g. when adapting it to your favourite command line look and feel.
+This example configuration simply changes the `[INFO]` label in each log line
+toa blue color and the `[WARNING]` label to red. LOGBack supports a lot of
+logging configurations, that you can take advantage of. Please refer to the [excellent documentation]
+(http://logback.qos.ch/documentation.html) for further details. The [coloring section of the layout chapter]
+(http://logback.qos.ch/manual/layouts.html#coloring) is specifically helpful for
+further tweaks to the default coloring output e.g. when adapting it to your
+favourite command line look and feel.
+
+## Improved HTTP Access
+
+TEAM includes usage of the OkHttp Aether Connector for improved performance for
+repository access. No user configuration is required to take advantage of this 
+feature.
+
+## Concurrent Safe Local Repository 
+
+TEAM includes support for concurrent safe access to the local Maven repository.
+This allows you to e.g. share a local Maven repository among parallel running
+build jobs on a CI server or multiple builds running on a developer machine
+without any potential negative side effects or issues. No user configuration is
+required to take advantage of this feature.
 
