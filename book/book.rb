@@ -95,7 +95,6 @@ File.open(tocFile, 'w') { |f|
 #
 # PDF
 #
-
 def figures(lang,&block)
   begin
     Dir["#$root/figures/18333*.png"].each do |file|
@@ -116,17 +115,6 @@ def figures(lang,&block)
     rm(Dir["#$root/figures/*.pdf"])
     rm(Dir["#$root/figures/*.eps"])
   end
-end
-
-def usage
-  puts <<USAGE
-Usage:
-  makepdf [OPTION...] LANGUAGE [LANGUAGE 2...]
-
-Options:
-  -d, --debug      prints TeX and other output
-USAGE
-  exit
 end
 
 def command_exists?(command)
@@ -226,10 +214,6 @@ end
 
 ARGV.delete_if{|arg| $DEBUG = true if arg == '-d' or arg == '--debug'}
 languages = $config['bookLanguages']
-
-#languages = ARGV.select{|arg| File.directory?("#$root/#{arg}")}
-#usage if languages.empty?
-
 template = ERB.new(File.read("#$root/book.tex"))
 
 missing = ['pandoc', 'xelatex'].reject{|command| command_exists?(command)}
@@ -295,7 +279,6 @@ end
 #
 # Ebooks
 # 
-
 def figures(lang,&block)
   begin
     Dir["figures/18333*.png"].each do |file|
@@ -317,54 +300,48 @@ def figures(lang,&block)
 end
 
 $config['bookFormats'].each do |format|
-$config['bookLanguages'].each do |lang|
-  figures (lang) do
-    puts "convert content for '#{lang}' language"
-
-    figure_title = 'Figure'
-    book_title = 'Takari Extensions for Apache Maven TEAM - Documentation'
-    authors = 'Jason van Zyl, Manfred Moser'
-    comments = 'licensed under the Creative Commons Attribution-Non Commercial-Share Alike 3.0 license'
-
-    book_content = %(<html xmlns="http://www.w3.org/1999/xhtml"><head><title>#{book_title}</title></head><body>)
-    dir = File.expand_path(File.join(File.dirname(__FILE__), lang))
-    Dir[File.join(dir, '**', '*.markdown')].sort.each do |input|
-      puts "processing #{input}"
-      content = File.read(input)
-      content.gsub!(/Insert\s18333fig\d+\.png\s*\n.*?(\d{1,2})-(\d{1,2})\. (.*)/, '![\1.\2 \3](figures/\1.\2.png "\1.\2 \3")')
-      book_content << RDiscount.new(content).to_html
+  $config['bookLanguages'].each do |lang|
+    figures (lang) do
+      puts "convert content for '#{lang}' language"
+      authors = $config['bookAuthor']
+      book_content = %(<html xmlns="http://www.w3.org/1999/xhtml"><head><title>#{$config['bookTitle']}</title></head><body>)
+      dir = File.expand_path(File.join(File.dirname(__FILE__), lang))
+      Dir[File.join(dir, '**', '*.markdown')].sort.each do |input|
+        puts "processing #{input}"
+        content = File.read(input)
+        content.gsub!(/Insert\s18333fig\d+\.png\s*\n.*?(\d{1,2})-(\d{1,2})\. (.*)/, '![\1.\2 \3](figures/\1.\2.png "\1.\2 \3")')
+        book_content << RDiscount.new(content).to_html
+      end
+      book_content << "</body></html>"
+  
+      File.open("#{$bookFileName}.#{lang}.html", 'w') do |output|
+        output.write(book_content)
+      end
+  
+      $ebook_convert_cmd = ENV['ebook_convert_path'].to_s
+      if $ebook_convert_cmd.empty?
+        $ebook_convert_cmd = `which ebook-convert`.chomp
+      end
+      if $ebook_convert_cmd.empty?
+        mac_osx_path = '/Applications/calibre.app/Contents/MacOS/ebook-convert'
+        $ebook_convert_cmd = mac_osx_path
+      end
+      
+      system($ebook_convert_cmd, "#{$bookFileName}.#{lang}.html", "#{$bookFileName}.#{lang}.#{format}",
+             '--cover', $config['bookCover'],
+             '--authors', $config['bookAuthor'],
+             '--comments', $config['bookComments'],
+             '--level1-toc', '//h:h1',
+             '--level2-toc', '//h:h2',
+             '--level3-toc', '//h:h3',
+             '--language', lang)
     end
-    book_content << "</body></html>"
-
-    File.open("#{$bookFileName}.#{lang}.html", 'w') do |output|
-      output.write(book_content)
-    end
-
-    $ebook_convert_cmd = ENV['ebook_convert_path'].to_s
-    if $ebook_convert_cmd.empty?
-      $ebook_convert_cmd = `which ebook-convert`.chomp
-    end
-    if $ebook_convert_cmd.empty?
-      mac_osx_path = '/Applications/calibre.app/Contents/MacOS/ebook-convert'
-      $ebook_convert_cmd = mac_osx_path
-    end
-
-    system($ebook_convert_cmd, "#{$bookFileName}.#{lang}.html", "#{$bookFileName}.#{lang}.#{format}",
-           '--cover', 'book-cover.png',
-           '--authors', authors,
-           '--comments', comments,
-           '--level1-toc', '//h:h1',
-           '--level2-toc', '//h:h2',
-           '--level3-toc', '//h:h3',
-           '--language', lang)
   end
-end
 end
 
 # 
 # Cleanup
 #
-
 mv("#{$bookFileName}.en.epub", "#{$outputDirectory}/#{$bookFileName}.epub")
 mv("#{$bookFileName}.en.mobi", "#{$outputDirectory}/#{$bookFileName}.mobi")
 mv("#{$bookFileName}.en.pdf", "#{$outputDirectory}/#{$bookFileName}.pdf")

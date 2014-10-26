@@ -8,6 +8,8 @@ default:
   bookAuthor: "Jason van Zyl, Manfred Moser"
   bookFormats: ["epub", "mobi"]
   bookFileName: "team"
+  bookCover: "book-cover.png"
+  bookComments: "licensed under the Creative Commons Attribution-Non Commercial-Share Alike 3.0 license"
   #
   # Tex
   #
