@@ -1,0 +1,28 @@
+default:
+  #
+  # Book configuration   #
+  bookLanguages: ["en"]
+  bookSiteUrl: "/book/"
+  bookTitle: "Takari Extensions for Apache Maven TEAM Handbook"
+  bookShortTitle: "TEAM Handbook"
+  bookAuthor: "Jason van Zyl, Manfred Moser"
+  bookFormats: ["epub", "mobi"]
+  bookFileName: "team"
+  #
+  # Tex
+  #
+  font: Helvetica
+  bold: "{* Bold}"
+  mono: Andale Mono
+  prechap: "Chapter "
+  postchap: ""
+  presect: "Section "
+  postsect: ""
+  dql: "“"
+  dqr: "”"
+  con: "Contents"
+  fig: "Figure "
+  tab: "Table "
+  indent: "\\qquad"
+  thanks: "Thank you for using the Takari Extensions for Apache Maven TEAM and reading this book."
+  

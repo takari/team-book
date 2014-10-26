@@ -28,10 +28,9 @@
 <%= config['langrule'] %>
 
 \settowidth{\parindent}{<%= config['indent'] %>}
-
-\title{Takari Extensions for Apache Maven TEAM Handbook}
-\newcommand{\shorttitle}{TEAM Handbook}
-\author{Jason van Zyl, Manfred Moser}
+\title{<%= config['bookTitle'] %>}
+\newcommand{\shorttitle}{<%= config['bookShortTitle'] %>}
+\author{<%= config['bookAuthor'] %>}
 
 
 \makeatletter
