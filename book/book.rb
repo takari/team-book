@@ -8,11 +8,23 @@ require 'rdiscount'
 include FileUtils
 
 $root = File.expand_path(File.dirname(__FILE__))
+# Where the source markdown files exist
+$bookContent = "#{$root}/.."
+# Where the figures exist
+$bookFigures = "#{$root}/../figures"
+# Where the html, and ebooks are published
 $outputDirectory = "#{$root}/target"
-$en = "#{$root}/en"
+# Book generation configuration
 $config = YAML.load_file("#$root/book.yml")['default']
-FileUtils.rm_rf($outputDirectory)
 $bookFileName = $config['bookFileName']
+$texTemplate = ERB.new(File.read("#$root/book.tex"))
+# Cleanup
+FileUtils.rm_rf($outputDirectory)
+$en = "#{$root}/en"
+$figures = "#{$root}/figures"
+
+# Copy figures over as they are needed in the output directory to work for now
+FileUtils.cp_r($bookFigures, $root)
 
 #
 # This generates anchors that work with redcarpets toc data option in Jekyll
@@ -37,7 +49,7 @@ def tocify(markdownFile, htmlFile)
 end
 
 chapters = []
-Dir.glob("../[0-9][0-9]-*.md") { |file|
+Dir.glob("#{$bookContent}/[0-9][0-9]-*.md") { |file|
   chapters << file
 }
 
@@ -92,9 +104,10 @@ File.open(tocFile, 'w') { |f|
   f.write(toc) 
 }
 
-#
+# ------------------------------------------------------------------------------
 # PDF
-#
+# ------------------------------------------------------------------------------
+
 def figures(lang,&block)
   begin
     Dir["#$root/figures/18333*.png"].each do |file|
@@ -212,9 +225,7 @@ def post_pandoc(string, config)
   end
 end
 
-ARGV.delete_if{|arg| $DEBUG = true if arg == '-d' or arg == '--debug'}
 languages = $config['bookLanguages']
-template = ERB.new(File.read("#$root/book.tex"))
 
 missing = ['pandoc', 'xelatex'].reject{|command| command_exists?(command)}
 unless missing.empty?
@@ -243,7 +254,7 @@ languages.each do |lang|
     dir = "#$root/#{lang}"
     mkdir_p(dir)
     File.open("#{dir}/main.tex", 'w') do |file|
-      file.write(template.result(binding))
+      file.write($texTemplate.result(binding))
     end
     puts "done"
 
@@ -276,9 +287,10 @@ languages.each do |lang|
   end
 end
 
-#
+# ------------------------------------------------------------------------------
 # Ebooks
-# 
+# ------------------------------------------------------------------------------
+
 def figures(lang,&block)
   begin
     Dir["figures/18333*.png"].each do |file|
@@ -347,3 +359,4 @@ mv("#{$bookFileName}.en.mobi", "#{$outputDirectory}/#{$bookFileName}.mobi")
 mv("#{$bookFileName}.en.pdf", "#{$outputDirectory}/#{$bookFileName}.pdf")
 rm("#{$bookFileName}.en.html")
 FileUtils.rm_rf($en)
+FileUtils.rm_rf($figures)

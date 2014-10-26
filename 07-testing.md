@@ -188,6 +188,4 @@ This will enable to you to e.g., run a single test by right-clicking on the test
 The following figure shows a sample test with multiple invocations for different 
 Maven version after a successful run within Eclipse.
 
-Insert 18333fig0701.png
-Figure 7-1. Maven plugin unit testing view in Eclipse
-
+![Maven plugin unit testing view in Eclipse](figures/07-maven-it.png)
