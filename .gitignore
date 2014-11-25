@@ -5,6 +5,7 @@ _book
 book/en
 book/latex/en
 book/team-book.en.html
+book/figures
 *.epub
 *.pdf
 *.mobi

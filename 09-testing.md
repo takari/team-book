@@ -6,8 +6,8 @@ TEAM introduces additional support for testing your Maven plugins.
 
 [//]: # (TBD)
 
-The Eclipse tooling of TEAM includes specific support for running unit tests for 
-Maven plugins with the help of the Maven Plugin Testing Harness. You can start 
+The Eclipse tooling of TEAM includes specific support for running unit tests for
+Maven plugins with the help of the Maven Plugin Testing Harness. You can start
 using it by adding the `test` scoped dependency:
 
 
@@ -19,10 +19,10 @@ using it by adding the `test` scoped dependency:
 </dependency>
 ````
 
-Further details can be found in 
+Further details can be found in
 the [mini guide on the Maven website](http://maven.apache.org/plugin-testing/maven-plugin-testing-harness/getting-started/index.html).
 
-Once everything is configured the M2e tooling will allow you to run and debug 
+Once everything is configured the M2e tooling will allow you to run and debug
 any test within the IDE.
 
 ## Plugin Integration Testing
@@ -180,12 +180,13 @@ for a failsafe test run.
 
 ### Running a Test in Eclipse
 
-When using the plugin testing on a project in Eclipse with M2e, the required 
-tooling including the Maven Development tools will be automatically installed. 
+When using the plugin testing on a project in Eclipse with M2e, the required
+tooling including the Maven Development tools will be automatically installed.
 This will enable to you to e.g., run a single test by right-clicking on the test
  method or class and selecting Run As/Debug As - Maven Junit Test.
 
-The following figure shows a sample test with multiple invocations for different 
+The following figure shows a sample test with multiple invocations for different
 Maven version after a successful run within Eclipse.
 
-![Maven plugin unit testing view in Eclipse](figures/07-maven-it.png)
+![Maven plugin unit testing view in Eclipse](figures/09-maven-it.png)
+

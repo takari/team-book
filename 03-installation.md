@@ -191,10 +191,10 @@ favourite command line look and feel.
 ## Improved HTTP Access
 
 TEAM includes usage of the OkHttp Aether Connector for improved performance for
-repository access. No user configuration is required to take advantage of this 
+repository access. No user configuration is required to take advantage of this
 feature.
 
-## Concurrent Safe Local Repository 
+## Concurrent Safe Local Repository
 
 TEAM includes support for concurrent safe access to the local Maven repository.
 This allows you to e.g. share a local Maven repository among parallel running
