@@ -22,7 +22,7 @@ file level. It does not provide all-or-nothing installation of artifacts produce
 
 ### Installation
 
-To use the Takari Local Repository access, you must install it in Maven's `lib/ext` folder, by downloading them jar
+To use the Takari Local Repository access, you must install it in Maven's `lib/ext` folder, by downloading the jar
 files from the Central Repository and moving them into place:
 
 ```
