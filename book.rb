@@ -9,9 +9,9 @@ include FileUtils
 
 $root = File.expand_path(File.dirname(__FILE__))
 # Where the source markdown files exist
-$bookContent = "#{$root}/.."
+$bookContent = "#{$root}"
 # Where the figures exist
-$bookFigures = "#{$root}/../figures"
+$bookFigures = "#{$root}/figures"
 # Where the html, and ebooks are published
 $outputDirectory = "#{$root}/target"
 # Book generation configuration
@@ -182,9 +182,6 @@ $texTemplate = ERB.new($texTemplateFile)
 FileUtils.rm_rf($outputDirectory)
 $en = "#{$root}/en"
 $figures = "#{$root}/figures"
-
-# Copy figures over as they are needed in the output directory to work for now
-FileUtils.cp_r($bookFigures, $root)
 
 #
 # This generates anchors that work with redcarpets toc data option in Jekyll
@@ -519,4 +516,3 @@ mv("#{$bookFileName}.en.mobi", "#{$outputDirectory}/#{$bookFileName}.mobi")
 mv("#{$bookFileName}.en.pdf", "#{$outputDirectory}/#{$bookFileName}.pdf")
 rm("#{$bookFileName}.en.html")
 FileUtils.rm_rf($en)
-FileUtils.rm_rf($figures)

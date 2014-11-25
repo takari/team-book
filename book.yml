@@ -1,6 +1,7 @@
 default:
   #
-  # Book configuration   #
+  # Book configuration
+  #
   bookLanguages: ["en"]
   bookSiteUrl: "/book/"
   bookTitle: "Takari Extensions for Apache Maven TEAM Handbook"
