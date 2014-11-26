@@ -1,9 +1,8 @@
 # Introducing Takari and TEAM
 
-This book was created to document the plugins and features available in the
-Takari Extensions for Apache Maven (TEAM). This introduction defines what the
-TEAM distribution is and introduces the company behind this new
-distribution.
+This book documents the plugins and features available as the Takari Extensions for Apache Maven (TEAM) as well
+associated components and tools, that improve your usage of Maven. This introduction defines what the TEAM distribution
+is and introduces the company behind this new distribution.
 
 ## What is TEAM?
 
@@ -23,7 +22,7 @@ distribution and TEAM includes the following features beyond that of Maven:
 
 1. Improved testing features and support
 
-## TEAM: Advanced Use Cases for Maven
+**TEAM: Advanced Use Cases for Maven**
 
 While TEAM's features are relevant to all Maven users, these features and
 plugins were designed to support development at scale - on projects with
@@ -53,28 +52,28 @@ developers bring multiple decades of experience building software systems to our
 customers. We know about creating and documenting large open source projects
 including Maven among others from years of actually running them.
 
-## Sustainable Open Source Development
+**Sustainable Open Source Development**
 
 Takari is committed to practicing sustainable open source development and
 building a community that understands exactly how open source developers and
 community members must be active participants to ensure the ongoing health of an
 open source project.
 
-## Integrity and Authenticity
+**Integrity and Authenticity**
 
 As open source developers we believe in doing the right thing, in a reliable
 way and are committed to being genuine in our actions and reactions. Everyone
 from our developers to our executives understands that our actions must be
 consistent with our community.
 
-## Our Customers are Our Investors
+**Our Customers are Our Investors**
 
 Our customers fund our day-to-day operations by paying for our training,
 services and products. We answer to our customers so we can continue to focus
 our energy where it matters most — on creating high-quality, useful products for
 the community.
 
-## Community Support is Key
+**Community Support is Key**
 
 Staying involved and continuing to support the projects that are such a large
 part of where we came from is important to us. While we are focused on
@@ -86,7 +85,7 @@ larger community.
 The efforts of Takari related to TEAM are influenced by the following industry
 trends:
 
-## Changing Technology - Changing Conventions
+**Changing Technology - Changing Conventions**
 
 What worked 10 years ago may not be appropriate for today’s builds, but the
 core concepts that drove the creation of Maven are still valid today. Convention
@@ -112,7 +111,7 @@ is Takari's goal to make sure that TEAM's regular releases can fill in the gaps
 between Maven's far less frequent releases so that changes in technology can be
 quickly addressed by TEAM.
 
-## Faster Lifecycles: More Frequent Releases
+**Faster Lifecycles: More Frequent Releases**
 
 When Maven was created we were aiming at projects that needed to conduct a
 weekly or monthly software release for a relatively well-defined project. When
@@ -135,8 +134,7 @@ TEAM's generations features as well as incremental and parallel builds are aimed
 squarely at created more timely and efficient builds for organizations that are
 looking to push to production frequently.
 
-
-# Installing and Configuring TEAM
+## Installing TEAM
 
 This chapter covers the installation process for the Takari Extensions for Apache Maven - TEAM.
 
@@ -144,7 +142,7 @@ Before you start installing TEAM there are a few things to establish. The
 following sections outline a few assumptions about the audience for this chapter
 as well as the prerequisites necessary for a successful installation.
 
-## Assumptions
+**Assumptions**
 
 One of the assumptions of TEAM is that you are already somewhat familiar with
 Maven terminology. You understand how to install Maven, and you also understand
@@ -156,7 +154,7 @@ Maven before, we suggest that you refer to the existing documentation or attend
 a Takari Maven training. In general, a familiarity with Maven will make the
 installation and setup process of TEAM very easy to understand.
 
-## Prerequisites
+**Prerequisites**
 
 TEAM is designed and tested for
 
@@ -182,7 +180,7 @@ but if you understand what you are doing you may be able to get away with
 running TEAM from a directory in your home directory. We leave this customization
 to the reader.
 
-## Downloading TEAM
+**Downloading**
 
 You TEAM can be downloaded from the Central Repository at
 `https://repo.maven.apache.org/maven/io/takari/takari-team-maven/`. This location
@@ -197,7 +195,7 @@ https://repo1.maven.apache.org/maven2/io/takari/takari-team-maven/0.9.0/takari-t
 
 resulting in a downloaded archive file name of `takari-team-maven-0.9.0.tar.gz`.
 
-## Installing TEAM
+**Installing**
 
 There are two ways to install TEAM on your computer. You can download a complete
 distribution of TEAM which includes Apache Maven. Alternatively you can run an
@@ -206,7 +204,7 @@ functioning installation of TEAM. The second option was created for environment
 in which Maven is already installed to make it easier to migrate large groups of
 developers to the supported TEAM distribution.
 
-### Installing a TEAM Distribution
+**Installing a TEAM Distribution**
 
 Installing the TEAM distribution is easy, and if you are familiar with
 installing Maven you'll notice the similarities. Once you have downloaded the
@@ -264,7 +262,7 @@ modification will look similar to
 %M2_HOME%\bin;%PATH%
 ```
 
-### Upgrading an Existing Apache Maven Installation
+**Upgrading an Existing Apache Maven Installation**
 
 To upgrade an existing Apache Maven installation....
 
@@ -272,7 +270,7 @@ To upgrade an existing Apache Maven installation....
 mvn team:install or whatever
 ```
 
-## Verifying your TEAM Installation
+**Verifying your TEAM Installation**
 
 Once you have installed the TEAM distribution, you should verify your setup
 by running `mvn -v` or `mvn --version`, which should display the TEAM version:
@@ -311,33 +309,7 @@ components.
 
 [//]: # (TBD need to add some URLs or whatever else here, maybe screenshots or whatever)
 
-## Logging
 
-TEAM includes support for colored logging and other features of the [LOGBack logging framework]
-(http://logback.qos.ch/) . Colored output can be activated by replacing the
-default `M2_HOME/conf/logback.xml` with the included `M2_HOME/conf/logback-colour.xml`
-.
 
-This example configuration simply changes the `[INFO]` label in each log line
-toa blue color and the `[WARNING]` label to red. LOGBack supports a lot of
-logging configurations, that you can take advantage of. Please refer to the [excellent documentation]
-(http://logback.qos.ch/documentation.html) for further details. The [coloring section of the layout chapter]
-(http://logback.qos.ch/manual/layouts.html#coloring) is specifically helpful for
-further tweaks to the default coloring output e.g. when adapting it to your
-favourite command line look and feel.
-
-## Improved HTTP Access
-
-TEAM includes usage of the OkHttp Aether Connector for improved performance for
-repository access. No user configuration is required to take advantage of this
-feature.
-
-## Concurrent Safe Local Repository
-
-TEAM includes support for concurrent safe access to the local Maven repository.
-This allows you to e.g. share a local Maven repository among parallel running
-build jobs on a CI server or multiple builds running on a developer machine
-without any potential negative side effects or issues. No user configuration is
-required to take advantage of this feature.
 
 
