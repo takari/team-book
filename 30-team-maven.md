@@ -101,12 +101,14 @@ runs the timing information is used to calculate the critical path and an attemp
 possible Smart Builder tries to schedule project builds such that your build should take no longer than the critical
 path.
 
-[//]: # (## Logging
+<!--
+
+## Logging
 
 TEAM includes support for colored logging and other features of the [LOGBack logging framework]
 (http://logback.qos.ch/) . Colored output can be activated by replacing the
 default `M2_HOME/conf/logback.xml` with the included `M2_HOME/conf/logback-colour.xml`
-.
+
 
 This example configuration simply changes the `[INFO]` label in each log line
 toa blue color and the `[WARNING]` label to red. LOGBack supports a lot of
@@ -117,9 +119,11 @@ further tweaks to the default coloring output e.g. when adapting it to your
 favourite command line look and feel.
 )
 
-[//]: # (## Improved HTTP Access
+## Improved HTTP Access
 
 TEAM includes usage of the OkHttp Aether Connector for improved performance for
 repository access. No user configuration is required to take advantage of this
 feature.
-)
+
+-->
+

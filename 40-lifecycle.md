@@ -41,7 +41,7 @@ choose.
 In order to take advantage of the improved lifecycle, you have to activate it by
 adding the takari-lifecycle-plugin as a build extension.
 
-```
+```markup
 <build>
   <plugins>
     <plugin>
@@ -62,7 +62,7 @@ install and deploy plugins in the respective lifecycle phases.
 Additionally projects with packaging `jar` have to be switched to use the
 `takari-jar` packaging.
 
-```
+```markup
 <project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.takari.lifecycle.its.basic</groupId>
@@ -88,7 +88,7 @@ with the takari lifecycle support can be configured by adding the
 `takari-lifecycl-plugin` and explicitly configuring the goals you want to
 execute:
 
-```
+```markup
 <build>
   <plugins>
     <plugin>
