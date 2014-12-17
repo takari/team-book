@@ -274,7 +274,7 @@ The Takari lifecycle allows you to make the compilation of your sources stricter
 and the packages in dependencies.
 
 The Maven Compiler Plugin adds all packages from the dependencies to the compilation and test compilations classpaths
-taking the rules for 'scope' into account. This means that even internal classes of a dependency, that are not meant to
+taking the rules for `scope` into account. This means that even internal classes of a dependency, that are not meant to
 be used become available and can be used.
 
 In addition it adds all the transitive dependencies of the declared dependencies to the classpath. While this behaviour
@@ -287,7 +287,7 @@ characteristics and so on.
 
 The Takari lifecycle introduces a new configuration parameter called `accessRulesViolation` , which is set to `ignore` by
 default. You can activate it by setting it to `warn` or `error` in the plugin configuration. In addition you need to use
-the `jdt' compiler: 
+the `jdt` compiler: 
 
 ```
 <plugin>
@@ -302,16 +302,40 @@ the `jdt' compiler: 
 
 Once you have activated the validation access rule violations will cause a build error (or warning). Transitive
 dependencies are no longer available on the classpath and usage of any classes from them will result in compilation
-failures. You will need to declare all used dependencies in your project.
+failures. You will need to declare all used dependencies in your project. 
 
-The access rule validation furthermore honours the OSGi metadata in any dependency. Any packages declared as private in
-the manifest of a dependency will not be available on the compilation classpath.
+All packages from these dependencies are made available on the classpath, unless they are packaged as OSGi bundles.
+Then the OSGI metadata in the JAR manifest file is honoured. Any packages declared as private in the manifest of a
+dependency will not be available on the compilation classpath. Alternatively an `export-package` file can be used to
+control the exported packages.
 
 If you are working with a project and want to take advantage of this feature, but do not want to go through the effort
 of creating an OSGi bundle, you can declare the exported packages of a project for the access rule validation in an `export-package`
 file. This file has to be located in `META-INF/takari/` and contains package names that should be exported. Each line
-should contain one package name. In a typical Maven project you can achieve this by adding the file as 
-`src/main/resources/META-INF/takari/export-package`.
+should contain one package name and all exported packages have to be added to the file. In a typical Maven project you
+can achieve this by adding the file as `src/main/resources/META-INF/takari/export-package`.
+
+The simplest way to create this file is to use the Takari lifecycle. It will automatically create the file by using the `export-package`
+goal in the `process-classess` lifecycle phase. By default, all packages, except packages named `**/internal/**` or `**/impl/**`
+, are exported automatically. The `exportIncludes` and `exportExcludes` configuration parameters can be used to further 
+control:
+
+```
+<plugin>
+  <groupId>io.takari.maven.plugins</groupId>
+  <artifactId>takari-lifecycle-plugin</artifactId>
+  <extensions>true</extensions>
+  <configuration>
+    <exportExcludes>
+      <exportExclude>**/private/**</exportExclude>
+      <exportExclude>**/legacy/**</exportExclude>
+    </exportExcludes>
+  </configuration>
+```
+
+Using the configuration above any packages in `**/internal/**` or `**/impl/**` are exported, since these default values 
+are overridden. If you still want them to be excluded, you can simply add these patterns to the configuration.
+
 
 ## Packaging jars Archives
 
