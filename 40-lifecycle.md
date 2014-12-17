@@ -267,6 +267,52 @@ activates verbose output.
 The `compile` goal supports specifying `includes` and `excludes` and the
 `testCompile` supports the equivalent `testIncludes` and `testExcludes`.
 
+
+## Enforcing Dependency Usage during Compilation
+
+The Takari lifecycle allows you to make the compilation of your sources stricter regarding the usage of dependencies
+and the packages in dependencies.
+
+The Maven Compiler Plugin adds all packages from the dependencies to the compilation and test compilations classpaths
+taking the rules for 'scope' into account. This means that even internal classes of a dependency, that are not meant to
+be used become available and can be used.
+
+In addition it adds all the transitive dependencies of the declared dependencies to the classpath. While this behaviour
+is convenient to some degree, more complex projects experience effects that are considered surprising due to this rule.
+E.g. a project can declare a simple dependency with a large tree of transitive dependencies and developers can start
+using these classes without explicitly declaring the dependencies. When this project is then used and unwanted
+transitive dependencies in the consuming project are excluded to produce smaller deployment components like a smaller
+WAR file with less footprint in terms of startup time, contained components to manage regarding security and license
+characteristics and so on.
+
+The Takari lifecycle introduces a new configuration parameter called `accessRulesViolation` , which is set to `ignore` by
+default. You can activate it by setting it to `warn` or `error` in the plugin configuration. In addition you need to use
+the `jdt' compiler: 
+
+```
+<plugin>
+  <groupId>io.takari.maven.plugins</groupId>
+  <artifactId>takari-lifecycle-plugin</artifactId>
+  <extensions>true</extensions>
+  <configuration>
+    <accessRulesViolation>error</accessRulesViolation>
+    <compilerId>jdt</compilerId>
+  </configuration>
+```
+
+Once you have activated the validation access rule violations will cause a build error (or warning). Transitive
+dependencies are no longer available on the classpath and usage of any classes from them will result in compilation
+failures. You will need to declare all used dependencies in your project.
+
+The access rule validation furthermore honours the OSGi metadata in any dependency. Any packages declared as private in
+the manifest of a dependency will not be available on the compilation classpath.
+
+If you are working with a project and want to take advantage of this feature, but do not want to go through the effort
+of creating an OSGi bundle, you can declare the exported packages of a project for the access rule validation in an `export-package`
+file. This file has to be located in `META-INF/takari/` and contains package names that should be exported. Each line
+should contain one package name. In a typical Maven project you can achieve this by adding the file as 
+`src/main/resources/META-INF/takari/export-package`.
+
 ## Packaging jars Archives
 
 Creating source and test
