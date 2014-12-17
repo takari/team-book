@@ -421,11 +421,10 @@ languages.each do |lang|
     cd($root)
     3.times do |i|
       print "\t\tPass #{i + 1}... "
-      IO.popen("xelatex -output-directory=\"#{dir}\" \"#{dir}/main.tex\" 2>&1") do |pipe|
+      IO.popen("xelatex -file-line-error -output-directory=\"#{dir}\" \"#{dir}/main.tex\" 2>&1") do |pipe|
         unless $DEBUG
           if $_[0..1]=='! '
             puts "failed with:\n\t\t\t#{$_.strip}"
-            puts "\tConsider running this again with --debug."
             abort = true
           end while pipe.gets and not abort
         else
