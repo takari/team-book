@@ -287,7 +287,7 @@ characteristics and so on.
 
 The Takari lifecycle introduces a new configuration parameter called `accessRulesViolation` , which is set to `ignore` by
 default. You can activate it by setting it to `warn` or `error` in the plugin configuration. In addition you need to use
-the `jdt` compiler: 
+the `jdt` compiler:
 
 ```
 <plugin>
@@ -335,7 +335,6 @@ control:
 
 Using the configuration above any packages in `**/internal/**` or `**/impl/**` are exported, since these default values 
 are overridden. If you still want them to be excluded, you can simply add these patterns to the configuration.
-
 
 ## Packaging jars Archives
 
