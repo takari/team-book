@@ -286,7 +286,7 @@ WAR file with bigger footprint in terms of startup time, contained components to
 characteristics and so on.
 
 The Takari lifecycle introduces a new configuration parameter called `accessRulesViolation`, which is set to `ignore` by
-default. You can activate it by setting it to `warn` or `error` in the plugin configuration. In addition you need to use
+default. You can activate it by setting it to `error` in the plugin configuration. In addition you need to use
 the `jdt` compiler:
 
 ```
@@ -300,7 +300,7 @@ the `jdt` compiler:
   </configuration>
 ```
 
-Once you have activated the validation, access rule violations will cause a build error (or warning). Transitive
+Once you have activated the validation, access rule violations will cause a build error. Transitive
 dependencies are no longer available on the classpath and usage of any classes from them will result in compilation
 failures. You will need to declare all used dependencies in your project explicitly and therefore make a conscious
 decision about their usage.
