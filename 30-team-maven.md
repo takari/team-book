@@ -70,8 +70,8 @@ To use the Takari Smart Builder you must install it in Maven's `lib/ext` folder,
 Central Repository and moving them into place:
 
 ```
-curl -O http://repo1.maven.org/maven2/io/takari/maven/takari-smart-builder/0.3.0/takari-smart-builder-0.3.0.jar
-mv takari-smart-builder-0.3.0.jar $M2_HOME/lib/ext
+curl -O http://repo1.maven.org/maven2/io/takari/maven/takari-smart-builder/0.4.0/takari-smart-builder-0.4.0.jar
+mv takari-smart-builder-0.4.0.jar $M2_HOME/lib/ext
 ```
 
 To take advantage of the Smart Builder you need to use multiple threads in your build execution. Invoke Maven by 
