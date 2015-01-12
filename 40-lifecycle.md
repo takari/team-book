@@ -109,7 +109,7 @@ execute:
 
 and deactivating the Maven compiler plugin:
 
-```
+```markup
 <build>
   ....
   <pluginManagement>

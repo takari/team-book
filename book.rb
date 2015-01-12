@@ -195,8 +195,11 @@ def tocify(markdownFile, htmlFile)
       forbidden_words = ['Table of contents', 'define', 'pragma']
       next if !line.start_with?("#") || forbidden_words.any? { |w| line =~ /#{w}/ }
       title = line.gsub("#", "").strip
+      id = title.downcase.gsub(" ", "-")
+      
       href = title.gsub(" ", "-").downcase
       href = "#{bookSiteUrl}#{htmlFile}#toc_#{tocCount}"
+      href = "#{bookSiteUrl}#{htmlFile}##{id}"
       tocLine = "    " * (line.count("#")-1) + "* [#{title}](#{href})\n"
       tocLines << tocLine
       tocCount = tocCount + 1

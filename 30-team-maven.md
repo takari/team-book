@@ -5,10 +5,7 @@ detail the configuration and usage.
 
 ## Concurrent Safe Local Repository
 
-The local repository used by Maven is, by default, stored in the users home directory in `.m2/repository` . It acts as a
-cache for dependencies and plugins, that have been retrieved from remote repositories, as well as a storage location for
-build outputs from locally built projects. These can then be used by other Maven projects accessing the local 
-repository.
+The local repository used by Maven is, by default, stored in the users home directory in `.m2/repository` . It acts as a cache for dependencies and plugins, that have been retrieved from remote repositories, as well as a storage location for build outputs from locally built projects. These can then be used by other Maven projects accessing the local repository.
 
 The access to the local repository performed by a standard Maven installation is not designed to support multiple 
 instances of Maven or even multiple threads from the same Maven invocation accessing it concurrently. Concurrent access 
