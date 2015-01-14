@@ -1,29 +1,86 @@
 # Test Support
 
-TEAM introduces additional support for testing your Maven plugins.
+TEAM introduces improved support for testing your Maven plugins in the form of
+a small, cohesive, one-stop library for developing unit and integration tests.
+The library provides a superior alternative to maven-plugin-testing-harness
+and maven-verifier and invoker based test setups.
+
+The main features and benefits are:
+
+1. Convenient junit4-based API
+
+2. Flexible unit test mojo configuration API simplifies test project setup and maintenance
+
+2. Support for locating main and test code in the same build module
+
+3. No need to install or deploy plugins to run tests
+
+4. Capability to easily run plugin integration tests against multiple Maven versions from one build invocation
+
+5. Integration with takari-lifecycle and incrementalbuild library
+
+6. Fully supported by the Maven Development Tools m2e extension
+
+7. Full support for all maven versions starting with 3.0
 
 ## Plugin Unit Testing
 
-[//]: # (TBD)
+In order to write unit tests for your Maven plugin, you simply add the dependency to the takari-plugin-testing to your
+pom.xml file.
 
-The Eclipse tooling of TEAM includes specific support for running unit tests for
-Maven plugins with the help of the Maven Plugin Testing Harness. You can start
-using it by adding the `test` scoped dependency:
-
-
-````
+```` 
 <dependency>
-  <groupId>org.apache.maven.plugin-testing</groupId>
-  <artifactId>maven-plugin-testing-harness</artifactId>
+  <groupId>io.takari.maven.plugins</groupId>
+  <artifactId>takari-plugin-testing</artifactId>
+  <version>2.0.0</version>
   <scope>test</scope>
 </dependency>
 ````
 
-Further details can be found in
-the [mini guide on the Maven website](http://maven.apache.org/plugin-testing/maven-plugin-testing-harness/getting-started/index.html).
+In additon, the plugin testing requires dependencies to maven-core and maven-compat. Most likely, your plugin already 
+has these dependencies, but if they are missing you have to add them with test scope at a minium. 
 
-Once everything is configured the M2e tooling will allow you to run and debug
-any test within the IDE.
+````
+<!-- required if not already present in main dependencies -->
+<dependency>
+  <groupId>org.apache.maven</groupId>
+  <artifactId>maven-core</artifactId>
+  <version>${mavenVersion}</version>
+  <scope>test</scope>
+</dependency>
+<dependency>
+  <groupId>org.apache.maven</groupId>
+  <artifactId>maven-compat</artifactId>
+  <version>${mavenVersion}</version>
+  <scope>test</scope>
+</dependency>
+````
+
+To improve you build time and take advantage of the Takari lifecycle, you can optionally change your plugin to 
+use the takari-maven-plugin packaging.
+
+````
+<packaging>takari-maven-plugin</packaging>
+````
+
+With these modifications to your pom.xml completed, you are ready to write your first unit test.
+
+````
+public class PluginUnitTest {
+  @Rule
+  public final TestResources resources = new TestResources();
+
+  @Rule
+  public final TestMavenRuntime maven = new TestMavenRuntime();
+
+  @Test
+  public void test() throws Exception {
+    File basedir = resources.getBasedir("testproject");
+    maven.executeMojo(basedir, "mymojo", newParameter("name", "value");
+    assertFilesPresent(basedir, "target/output.txt");
+  }
+}
+````
 
 ## Plugin Integration Testing
 
