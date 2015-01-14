@@ -1,18 +1,18 @@
 # The Takari Lifecycle
 
 TEAM includes an optimized replacement for the Maven default lifecycle. The
-Takari Lifecycle Plugin provided you access to a number of significant
+Takari Lifecycle Plugin provides you access to a number of significant
 advantages:
 
 1. One plugin with a small set of dependencies provides equivalent functionality
    to five plugins with a large set of transitive dependencies. This reduces the
-   download times to retrieve the needed components as well tje storage space
+   download times to retrieve the needed components as well the storage space
    requirements in your repositories.
 
 2. The configuration for a number of aspects for your build is centralized to
    one plugin and simplified.
 
-3. The reduced complexity of the plugins involved in the build results in higher
+3. The reduced complexity of the plugins involved in the build, results in higher
    build performance on the command line and in the IDE.
 
 4. The build is fully incremental, not only for your source code, but also for
@@ -137,11 +137,11 @@ invocations of the specific goals. For a project with packaging `pom` this
 will mainly affect the install and deploy invocations
 
 ```
-[INFO] --- takari-lifecycle-plugin:1.7.4:install (default-install) @ pom-only ---
+[INFO] --- takari-lifecycle-plugin:x.y.z:install (default-install) @ pom-only ---
 [INFO] Performing incremental build
 [INFO] Installing .../pom.xml to /~/.m2/repository/.../SNAPSHOT/pom-only-1.0.0-SNAPSHOT.pom
 [INFO]
-[INFO] --- takari-lifecycle-plugin:1.7.4:deploy (default-deploy) @ pom-only ---
+[INFO] --- takari-lifecycle-plugin:x.y.z:deploy (default-deploy) @ pom-only ---
 [INFO] Performing incremental build
 ...
 Uploaded: http://.../1.0.0-SNAPSHOT/pom-only-1.0.0-20140731.183927-2.pom (2 KB at 8 KB/sec)
@@ -154,7 +154,7 @@ Upon first invocation each goal will be performed as usual, executing all steps
 e.g., compiling all files or copying and filtering all resources.
 
 ```
-[INFO] --- takari-lifecycle-plugin:1.7.4:process-resources (default-process-resources) @ simple-jar ---
+[INFO] --- takari-lifecycle-plugin:x.y.z:process-resources (default-process-resources) @ simple-jar ---
 [INFO] Previous incremental build state does not exist, performing full build
 ```
 
@@ -163,10 +163,10 @@ builds and execute incrementally.
 
 ```
 $ mvn compile
-[INFO] --- takari-lifecycle-plugin:1.7.4:process-resources (default-process-resources) @ simple-jar ---
+[INFO] --- takari-lifecycle-plugin:x.y.z:process-resources (default-process-resources) @ simple-jar ---
 [INFO] Performing incremental build
 [INFO]
-[INFO] --- takari-lifecycle-plugin:1.7.4:compile (default-compile) @ simple-jar ---
+[INFO] --- takari-lifecycle-plugin:x.y.z:compile (default-compile) @ simple-jar ---
 [INFO] Performing incremental build
 [INFO] Skipped compilation, all 1 sources are up to date
 ```
@@ -195,7 +195,7 @@ changes as well as any resource changes and incrementally reprocesses the
 affected files only as shown in the log
 
 ```
-[INFO] --- takari-lifecycle-plugin:1.7.4:process-resources (default-process-resources) @ simple-jar ---
+[INFO] --- takari-lifecycle-plugin:x.y.z:process-resources (default-process-resources) @ simple-jar ---
 [INFO] Performing incremental build
 ```
 
@@ -369,7 +369,7 @@ packing project.
 [INFO] --- takari-lifecycle-plugin:x.y.z:install (default-install) @ pom-only ---
 [INFO] Installing .../pom.xml to ~/.m2/repository/.../pom-only-1.0.pom
 [INFO]
-[INFO] --- takari-lifecycle-plugin:1.8.0-SNAPSHOT:deploy (default-deploy) @ pom-only ---
+[INFO] --- takari-lifecycle-plugin:x.y.z:deploy (default-deploy) @ pom-only ---
 Uploading: http://.../pom-only-1.0.pom
 Uploaded: http://.../pom-only-1.0.pom (2 KB at 4.5 KB/sec)
 Downloading: http://.../maven-metadata.xml
@@ -401,8 +401,8 @@ Uploaded: http://.../maven-metadata.xml (295 B at 4.8 KB/sec)
 
 The incremental build behavior of the takari lifecycle is supported by an
 extension to the Maven support for Eclipse, m2e. This extensions will
-automatically be installedwhen you import a Maven project that have
-thetakari-lifecycle-plugin configured.
+automatically be installed when you import a Maven project that have
+the takari-lifecycle-plugin configured.
 
 Alternatively you can install it manually by choosing Help - Install New
 Software and adding another software site using the following URL
