@@ -25,10 +25,12 @@ The main features and benefits are:
 
 ## Plugin Unit Testing
 
+### Configuring the POM
+
 In order to write unit tests for your Maven plugin, you simply add the dependency to the takari-plugin-testing to your
 POM.
 
-```` 
+````
 <dependency>
   <groupId>io.takari.maven.plugins</groupId>
   <artifactId>takari-plugin-testing</artifactId>
@@ -37,8 +39,8 @@ POM.
 </dependency>
 ````
 
-In additon, the plugin testing requires dependencies to maven-core and maven-compat. Most likely, your plugin already 
-has these dependencies, but if they are missing you have to add them with test scope at a minium. 
+In additon, the plugin testing requires dependencies to maven-core and maven-compat. Most likely, your plugin already
+has these dependencies, but if they are missing you have to add them with test scope at a minium.
 
 ````
 <!-- required if not already present in main dependencies -->
@@ -56,12 +58,14 @@ has these dependencies, but if they are missing you have to add them with test s
 </dependency>
 ````
 
-To improve you build time and take advantage of the Takari lifecycle, you can optionally change your plugin to 
+To improve you build time and take advantage of the Takari lifecycle, you can optionally change your plugin to
 use the takari-maven-plugin packaging.
 
 ````
 <packaging>takari-maven-plugin</packaging>
 ````
+
+### Writing a Test
 
 With these modifications to your pom.xml completed, you are ready to write your first unit test.
 
@@ -92,8 +96,8 @@ and allows you full debugging of your build.
 
 ### Configuring the POM
 
-A dependency to the integration testing needs to be added to the POM of the project 
-containing the integration tests. Note how the dependency uses a test scope as usual, 
+A dependency to the integration testing needs to be added to the POM of the project
+containing the integration tests. Note how the dependency uses a test scope as usual,
 but also has the type set to pom.
 
 ````
@@ -106,7 +110,7 @@ but also has the type set to pom.
 </dependency>
 ````
 
-In addition you have to adopt the Takari lifecycle by using the packaging takari-maven-plugin 
+In addition you have to adopt the Takari lifecycle by using the packaging takari-maven-plugin
 or alternatively by adding the plugin manually and adding the testProperties goal invocation:
 
 ````
@@ -197,7 +201,6 @@ mvn test -Dtest=ExampleTest
 ```
 
 for a failsafe test run.
-
 
 ### Running a Test in Eclipse
 
