@@ -6,7 +6,11 @@ advantages:
 
 1. One plugin with a small set of dependencies provides equivalent functionality
    to five plugins with a large set of transitive dependencies. This reduces the
+<<<<<<< HEAD
    download times to retrieve the needed components as well the storage space
+=======
+   download times to retrieve the needed components as well as the storage space
+>>>>>>> Fix typo
    requirements in your repositories.
 
 2. The configuration for a number of aspects for your build is centralized to
