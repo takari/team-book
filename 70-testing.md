@@ -180,7 +180,7 @@ The build will run a full build of the `example` project by copying it to the a
 method and Maven specific folder in `target/test-projects` . The `MavenVersions`
 annotation supports multiple versions to be specified and relies on the Maven
 installation done by the POM configuration with the dependency plugin.
-The MavenRuntime object allows you to set furhter parameters using withCliOption.
+The MavenRuntime object allows you to set further parameters using withCliOption.
 
 ### Command Line Test Execution
 
