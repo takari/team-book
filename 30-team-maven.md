@@ -98,29 +98,12 @@ runs the timing information is used to calculate the critical path and an attemp
 possible Smart Builder tries to schedule project builds such that your build should take no longer than the critical
 path.
 
-<!--
-
 ## Logging
 
-TEAM includes support for colored logging and other features of the [LOGBack logging framework]
-(http://logback.qos.ch/) . Colored output can be activated by replacing the
-default `M2_HOME/conf/logback.xml` with the included `M2_HOME/conf/logback-colour.xml`
+TEAM includes support for colored logging and other features of the [LOGBack logging framework] (http://logback.qos.ch/) . Colored output can be activated by replacing the default `M2_HOME/conf/logback.xml` with the included `M2_HOME/conf/logback-colour.xml`
 
-
-This example configuration simply changes the `[INFO]` label in each log line
-toa blue color and the `[WARNING]` label to red. LOGBack supports a lot of
-logging configurations, that you can take advantage of. Please refer to the [excellent documentation]
-(http://logback.qos.ch/documentation.html) for further details. The [coloring section of the layout chapter]
-(http://logback.qos.ch/manual/layouts.html#coloring) is specifically helpful for
-further tweaks to the default coloring output e.g. when adapting it to your
-favourite command line look and feel.
-)
+This example configuration simply changes the `[INFO]` label in each log line to a blue color and the `[WARNING]` label to red. LOGBack supports a lot of logging configurations, that you can take advantage of. Please refer to the [excellent documentation](http://logback.qos.ch/documentation.html) for further details. The [coloring section of the layout chapter](http://logback.qos.ch/manual/layouts.html#coloring) is specifically helpful for further tweaks to the default coloring output e.g. when adapting it to your favourite command line look and feel.
 
 ## Improved HTTP Access
 
-TEAM includes usage of the OkHttp Aether Connector for improved performance for
-repository access. No user configuration is required to take advantage of this
-feature.
-
--->
-
+TEAM includes usage of the OkHttp Aether Connector for improved performance for repository access. No user configuration is required to take advantage of this feature.

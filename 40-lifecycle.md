@@ -267,6 +267,47 @@ activates verbose output.
 The `compile` goal supports specifying `includes` and `excludes` and the
 `testCompile` supports the equivalent `testIncludes` and `testExcludes`.
 
+## Note on annotation processing
+
+Please note that in the Takari Lifecycle annotation processing is turned off by default, so be aware of the `<proc/>` element when you need annotation processing. If, for example, you're using an annotation processor like Lombok then make sure you setup the configuration appropriately like the example below.
+
+```
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.takari.project</groupId>
+  <artifactId>project-with-lombok</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>takari-jar</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.14.8</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.takari.maven.plugins</groupId>
+        <artifactId>takari-lifecycle-plugin</artifactId>
+        <version>1.10.1</version>
+        <extensions>true</extensions>
+        <configuration>
+          <proc>proc</proc>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>  
+</project>
+
+```
 
 ## Enforcing Dependency Usage during Compilation
 
