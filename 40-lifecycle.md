@@ -306,7 +306,6 @@ Please note that in the Takari Lifecycle annotation processing is turned off by 
     </plugins>
   </build>  
 </project>
-
 ```
 
 ## Enforcing Dependency Usage during Compilation
