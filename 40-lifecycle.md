@@ -19,7 +19,7 @@ advantages:
    your resources, which in turn again speeds up development cycle and build
    times.
 
-5. Dedicated IDE support brings the advantages of the lifecyle to your daily
+5. Dedicated IDE support brings the advantages of the lifecycle to your daily
    development work.
 
 ## Overview
@@ -54,7 +54,7 @@ adding the takari-lifecycle-plugin as a build extension.
 ```
 
 This is all the configuration necessary for projects with packaging `pom`. The
-lifecycle bindings are altered so that the `takari-lifeycle-plugin` replaces the
+lifecycle bindings are altered so that the `takari-lifecycle-plugin` replaces the
 install and deploy plugins in the respective lifecycle phases.
 
 [//]: # (TBD is this enough docs for the pom packaging or do we need to mention anything else, related to shadow POM packaging Jason mentioned to talk to Igor about,)
@@ -148,7 +148,7 @@ Uploaded: http://.../1.0.0-SNAPSHOT/pom-only-1.0.0-20140731.183927-2.pom (2 KB a
 ```
 
 A project with packaging `takari-jar` will log the lifecycle plugin invocations
-for the resources, compiliation and packaging related goals as well.
+for the resources, compilation and packaging related goals as well.
 
 Upon first invocation each goal will be performed as usual, executing all steps
 e.g., compiling all files or copying and filtering all resources.
