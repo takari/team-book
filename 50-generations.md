@@ -2,17 +2,4 @@
 
 ## Introduction
 
-TEAM supports a replacement for the distinction between development or SNAPSHOT
-versions and release versions of Maven projects and artifacts called
-Generations. This new concept allows for every build to be treated as a
-potential release and establishes a mapping of each artifact to a unique
-revision in the version control system.
-
-It relies on a sequential increment of a version number qualifier that it
-manages in coordination with the backing SCM system. Currently P4 is
-supported... a centralized git support and others are planned..
-
-Generations support in TEAM allows for simple setups of Maven based builds to
-support continuous build as well as continuous deployment set ups.
-
-More to come here shortly.
+Generations is a form of continuous delivery for Maven. Takari has been working on this tooling with Salesforce over the last year and it's something we plan to release as soon as we can. The support consists of extensions for Maven and a stand-alone server that supports the generations deployment model. We are considering creating plugins for Nexus and Artifactory but are as of yet undecided. We hope to have more here soon.
