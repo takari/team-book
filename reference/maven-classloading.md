@@ -10,13 +10,13 @@ During normal command line Maven invocation this is the JVM System classloader a
 
 ## Maven Core classloader
 
-This classloader contains core Maven runtime classes like MavenProject, AsbtractMojo and so on. This is the classloader set as "container realm" in the Plexus container instance unless Maven Extensions classloader is created (see below).
+This classloader contains core Maven runtime classes like MavenProject, AsbtractMojo and so on. This is the classloader set as the "container realm" in the Plexus container instance unless Maven Extensions classloader is created (see below).
 
-Contents of this classloader is configured in `${maven.home}/bin/m2.conf` configuratio file and typically contains `${maven.home}/lib/ext/*.jar` and `${maven.home}/lib/*.jar`.
+Contents of this classloader are configured in `${maven.home}/bin/m2.conf` and typically contains `${maven.home}/lib/ext/*.jar` and `${maven.home}/lib/*.jar`.
 
 ## Maven Core Extensions classloaders
 
-Core Extensions is a new mechanism introduced in Maven 3.2.6 which allows additional components to be loaded into Maven Core as part of a build session.
+Core Extensions is a new mechanism introduced in Maven 3.3.0 which allows additional components to be loaded into Maven Core as part of a build session.
 
 Each core extension is loaded in a separate classloader and there is no mechanism to share classes among core extensions. Core extensions classloaders use Maven Core classloader as the parent and have access to both exported and internal Maven Core classes.
 
@@ -53,7 +53,7 @@ Maven API uses approximate JVM Bootstrap classloader as its parent. (there is no
 
 ## Build Extension classloaders
 
-Modern Maven 3.x build extensions are build extensions that either consts of multiple artifacts or have `META-INF/maven/extension.xml`. Each modern build extension is loaded in a a fully isolated classloader, i.e. it is not possible to share classes or inject components among extensions.
+Modern Maven 3.x build extensions are build extensions that either consist of multiple artifacts or have `META-INF/maven/extension.xml`. Each modern build extension is loaded in a a fully isolated classloader, i.e. it is not possible to share classes or inject components among extensions.
 
 Maven guarantees that each distinct modern build extension (as identified by plugin groupId, artifactId, version and set of dependecies) is loaded by one and only one extensions classloader and the classloader is wired to all projects that use the extension.
 
