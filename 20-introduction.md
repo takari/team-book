@@ -182,7 +182,7 @@ to the reader.
 
 **Downloading**
 
-You TEAM can be downloaded from the Central Repository at
+TEAM can be downloaded from the Central Repository at
 `https://repo.maven.apache.org/maven/io/takari/takari-team-maven/`. This location
 contains all released versions. The TEAM distribution is available as both a
 GZip'd tar archive in each version specific folder following the Maven
