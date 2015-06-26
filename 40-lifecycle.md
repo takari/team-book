@@ -447,7 +447,7 @@ Alternatively you can install it manually by choosing Help - Install New
 Software and adding another software site using the following URL
 
 ```
-http://repository.takari.io:8081/nexus/content/sites/m2e.extras/takari-team/0.1.0/N/LATEST/
+https://repository.takari.io/content/sites/m2e.extras/takari-team/0.1.0/N/LATEST/
 ```
 
 Once the available components are loaded, you will be able to select
