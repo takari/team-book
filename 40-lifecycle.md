@@ -222,7 +222,6 @@ code to Java 1.8 compatible class files
     <artifactId>takari-lifecycle-plugin</artifactId>
     <configuration>
       <source>1.8</source>
-      <target>1.8</target>
     </configuration>
 ```
 
