@@ -34,7 +34,7 @@ POM.
 <dependency>
   <groupId>io.takari.maven.plugins</groupId>
   <artifactId>takari-plugin-testing</artifactId>
-  <version>2.0.0</version>
+  <version>2.8.0</version>
   <scope>test</scope>
 </dependency>
 ````
@@ -104,7 +104,7 @@ but also has the type set to pom.
 <dependency>
   <groupId>io.takari.maven.plugins</groupId>
   <artifactId>takari-plugin-integration-testing</artifactId>
-  <version>2.0.0</version>
+  <version>2.8.0</version>
   <type>pom</type>
   <scope>test</scope>
 </dependency>
@@ -117,7 +117,7 @@ or alternatively by adding the plugin manually and adding the testProperties goa
 <plugin>
   <groupId>io.takari.maven.plugins</groupId>
   <artifactId>takari-lifecycle-plugin</artifactId>
-  <version>1.10.0</version>
+  <version>1.11.11</version>
   <executions>
     <execution>
       <id>testProperties</id>
@@ -153,7 +153,7 @@ could look like the following:
 
 ````
 @RunWith(MavenJUnitTestRunner.class)
-@MavenVersions({"3.0.5", "3.2.5"})
+@MavenVersions({"3.0.5", "3.3.3"})
 public class ExampleTest {
 
   @Rule

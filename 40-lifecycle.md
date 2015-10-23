@@ -117,7 +117,7 @@ and deactivating the Maven compiler plugin:
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
+        <version>3.3</version>
         <configuration>
           <skip>true</skip>
           <skipMain>true</skipMain>
