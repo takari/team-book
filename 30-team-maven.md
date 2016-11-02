@@ -39,7 +39,7 @@ performed in a process/thread safe manner.
 
 ## Takari Smart Builder
 
-The Takari Smart Builder, available at https://github.com/takari/takari-local-repository, is an alternative scheduler
+The Takari Smart Builder, available at https://github.com/takari/takari-smart-builder, is an alternative scheduler
 for build multi-module Maven projects. It allows the user to greatly improve the performance of mulit-module builds. The
 primary difference between the standard multi-threaded scheduler in Maven and the Takari smart builder is
 illustrated below.
