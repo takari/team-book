@@ -91,7 +91,7 @@ Maven Core, Session and Build Extensions use `META-INF/maven/extension.xml` desc
    | list of exported classname prefixes.
    -->
  <exportedPackages>
-   <exportedPackage>org.something.myextension</exportedPackage>
+   <exportedPackage>org.something.myextension.*</exportedPackage>
  </exportedPackages>
      
  <!-- 
@@ -102,3 +102,5 @@ Maven Core, Session and Build Extensions use `META-INF/maven/extension.xml` desc
  </exportedArtifacts>
 </extension>
 ```
+
+Note that `exportedPackage` defines exported elements name **prefix**. If exported name ends with `.*` (e.g., `some.pkg.*`), only classes and resources from that specific package are exported. Otherwise all classes and resources with the specified name prefix are exported, so `some.pkg` exports `some.pkg.AClass`, `some/pkg/subpkg/resource.txt` and so on. If exported name matches specific class (e.g., `some.pkg.AClass`), then the class itself and all nested classes are exported (e.g., `some.pkg.AClass$Nested`, `some.pkg.AClass$1` and so on).
