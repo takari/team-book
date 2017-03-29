@@ -190,7 +190,7 @@ repository format's naming convention for the archive. E.g. you can download
 version 0.9.0 of TEAM from
 
 ```
-https://repo1.maven.apache.org/maven2/io/takari/takari-team-maven/0.9.0/takari-team-maven-0.9.0.tar.gz
+https://repo1.maven.org/maven2/io/takari/takari-team-maven/0.9.0/takari-team-maven-0.9.0.tar.gz
 ```
 
 resulting in a downloaded archive file name of `takari-team-maven-0.9.0.tar.gz`.
